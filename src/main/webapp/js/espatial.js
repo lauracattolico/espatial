@@ -140,7 +140,6 @@ $(document).ready(function() {
             			   $("#" + flightTime["bookId"]).attr("disabled","disabled");
             			   $("#" + flightTime["bookId"]).addClass("btn-disabled");
                 	   }
-            		   var flightType = $('input[name=flightType]:checked').val();
             		   
             		   $("#" + flightTime["bookId"]).click(function() {
             			   var idFlight = this.id;
