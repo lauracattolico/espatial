@@ -1,0 +1,83 @@
+html{
+    font-family:sans-serif;
+}
+
+.custom-radio{
+	margin-right:  1rem;
+}
+
+.input-group{
+	/*border: 1px solid green;*/
+	margin-top: 1rem;
+	margin-bottom:1rem;
+}
+
+.input-group-prepend{
+	float: left;
+}
+
+.input-group-text{
+	font-size:1rem;
+}
+
+.custom-select{
+	margin-left: 1rem;
+	width: 10rem;
+	
+}
+
+.custom-text-date{
+	margin-left:  1rem;
+	
+}
+
+.btn{
+    
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.container-fluid{
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 15px;
+}
+
+.row{
+	width:100%;
+	margin-right:-15px;
+    margin-left:-15px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.bg-warning{
+    background-color:#ffc107;
+}
+
+.bg-light{
+    background-color:#f8f9fa;
+}
+
+.col{
+    position:relative;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px;
+    float: left;
+}
+.col-1{
+    position:relative;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px;
+    float: right;
+}
+
+.btn-disabled {
+    opacity:.65
+}

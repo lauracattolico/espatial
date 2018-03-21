@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Search flights</title>
+<link rel="stylesheet" href="webjars/jquery-ui/1.9.2/css/smoothness/jquery-ui-1.9.2.custom.min.css">
+<link rel="stylesheet" type="text/css" href="css/espatial.css">
+<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/jquery.tmpl.js"></script>
+<script src="js/espatial.js"></script>
+<script src="webjars/jquery-ui/1.9.2/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+</head>
+
+<body>
+
+	<h1>Search flights</h1>
+
+	<form id="searchForm">
+		Single <input type="radio" class="custom-radio" id="singleFlightType" name="flightType" value="single"> 
+		Return <input type="radio" class="custom-radio" id="returnFlightType" name="flightType" value="return">
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="airportFrom">Departure</label>
+			</div>
+			<select class="custom-select" name="airportFrom" id="airportFrom">
+			</select>
+		</div>
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="airportTo">Arrive</label>
+			</div>
+			<select class="custom-select" name="airportTo" id="airportTo">
+			</select>
+		</div>
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="dateFrom">From</label>
+			</div>
+			<input class="custom-text-date" type="text" id="datepickerFrom" name="dateFrom" readonly>
+		</div>
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="dateTo">To</label>
+			</div>
+			<input class="custom-text-date" type="text" id="datepickerTo" name="dateTo" readonly>
+		</div>
+
+		<div class="input-group">
+			<button type="button" class="btn btn-primary btn-sm"
+				id="buttonSearch">SEARCH</button>
+		</div>
+	</form>
+
+	<br>
+	<br>
+
+	<div id="response"></div>
+<body>
+
+</html>

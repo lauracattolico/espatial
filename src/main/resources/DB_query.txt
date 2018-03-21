@@ -1,0 +1,42 @@
+
+-- Single
+
+SELECT f.id, f.idRouteTimetable, rt.code, dep.name AS departure, arr.name AS arrival,
+f.date, rt.hourDeparture, rt.hourArrival, f.price, f.maxTicket, f.bookedTicket 
+FROM Flight f
+JOIN RouteTimetable rt ON f.idRouteTimetable = rt.id
+JOIN Route r ON rt.idRoute = r.id
+JOIN Airport dep ON r.idAirportDeparture = dep.id
+JOIN Airport arr ON r.idAirportArrival = arr.id
+WHERE f.date = '2018-04-01'
+AND r.idAirportDeparture = 1 AND r.idAirportArrival = 2
+ORDER BY f.date, rt.hourDeparture
+
+
+
+-- Return
+
+SELECT f.id, f.idRouteTimetable, rt.code, dep.name AS departure, arr.name AS arrival,
+f.date, rt.hourDeparture, rt.hourArrival, f.price, f.maxTicket, f.bookedTicket 
+FROM Flight f
+JOIN RouteTimetable rt ON f.idRouteTimetable = rt.id
+JOIN Route r ON rt.idRoute = r.id
+JOIN Airport dep ON r.idAirportDeparture = dep.id
+JOIN Airport arr ON r.idAirportArrival = arr.id
+WHERE f.date ='2018-04-01'
+AND r.idAirportDeparture = 1 AND r.idAirportArrival = 2
+UNION
+SELECT f.id, f.idRouteTimetable, rt.code, dep.name AS departure, arr.name AS arrival,
+f.date, rt.hourDeparture, rt.hourArrival, f.price, f.maxTicket, f.bookedTicket 
+FROM Flight f
+JOIN RouteTimetable rt ON f.idRouteTimetable = rt.id
+JOIN Route r ON rt.idRoute = r.id
+JOIN Airport dep ON r.idAirportDeparture = dep.id
+JOIN Airport arr ON r.idAirportArrival = arr.id
+WHERE f.date ='2018-04-12'
+AND r.idAirportDeparture = 2 AND r.idAirportArrival = 1
+ORDER BY date, hourDeparture
+
+
+
+
