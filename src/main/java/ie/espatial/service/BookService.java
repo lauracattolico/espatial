@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 
 import ie.espatial.db.DataSourceFactory;
 import ie.espatial.db.dao.BookFlightDAO;
-import ie.espatial.db.dao.FactoryDAO;
 import ie.espatial.db.dao.FlightDAO;
 import ie.espatial.db.dao.TripDAO;
 
@@ -19,10 +18,10 @@ public class BookService {
 	private final BookFlightDAO bookFlightDAO;
 	private final FlightDAO flightDAO;
 
-	public BookService() {
-		tripDAO = FactoryDAO.buildTripDAO();
-		bookFlightDAO = FactoryDAO.buildBookFlightDAO();
-		flightDAO = FactoryDAO.buildFlightDAO();
+	public BookService(TripDAO tripDAO, BookFlightDAO bookFlightDAO, FlightDAO flightDAO) {
+		this.tripDAO = tripDAO;
+		this.bookFlightDAO = bookFlightDAO;
+		this.flightDAO = flightDAO;
 	}
 
 	public int bookFlight(String idFlight) {

@@ -1,19 +1,23 @@
-package espatial;
+package ie.espatial.service;
+
+import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.Test;
+
+import ie.espatial.db.dao.FactoryDAO;
 import ie.espatial.model.Airport;
 import ie.espatial.service.AirportService;
-import junit.framework.TestCase;
 
-public class AirportServiceTest extends TestCase {
+public class AirportServiceTest {
 
+	@Test
 	public void testRetrieveActiveAirports() {
-		AirportService airportService = new AirportService();
+		AirportService airportService = new AirportService(FactoryDAO.buildAirportDAO());
 		List<Airport> airports = airportService.retrieveActiveAirports();
 		assertNotNull(airports);
 		assertFalse(airports.isEmpty());
-		
 	}
 
 }

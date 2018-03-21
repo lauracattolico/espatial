@@ -1,8 +1,9 @@
-package espatial;
+package ie.espatial.service;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import ie.espatial.db.dao.AirportDAO;
 import ie.espatial.model.Airport;
 import ie.espatial.service.AirportService;
 
-public class AirportServiceTest2 {
+public class AirportServiceMockTest {
 	
 	@Mock
 	private AirportDAO daoMock;
@@ -30,19 +31,16 @@ public class AirportServiceTest2 {
          MockitoAnnotations.initMocks(this);
     }
 
-
-	@Test
-	public void testRetrieveActiveAirports() {
-		AirportService service = new AirportService();
-		List<Airport> airports = service.retrieveActiveAirports();
-		assertNotNull(airports);
-		assertFalse(airports.isEmpty());
-	}
-
-
 	@Test
 	public void testRetrieveActiveAirportsMocked() {
-		when(daoMock.retrieveActiveAirports()).thenReturn(new ArrayList<Airport>());
-        assertThat(airportService.retrieveActiveAirports(), is(notNullValue()));
+		List<Airport> airports = new ArrayList<Airport>();
+		airports.add(new Airport());
+		airports.add(new Airport());
+		when(daoMock.retrieveActiveAirports()).thenReturn(airports);
+		List<Airport> actualAirports = airportService.retrieveActiveAirports();
+        assertThat(actualAirports, is(notNullValue()));
+        assertThat(actualAirports, hasSize(2));
+        assertThat(actualAirports.size(), is(2));
+
 	}
 }

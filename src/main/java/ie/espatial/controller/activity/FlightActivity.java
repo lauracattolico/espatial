@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ie.espatial.db.dao.FactoryDAO;
 import ie.espatial.model.FlightResult;
 import ie.espatial.service.FlightService;
 
@@ -22,7 +23,7 @@ public class FlightActivity implements Activity {
 	private final FlightService flightService;
 
 	public FlightActivity() {
-		flightService = new FlightService();
+		flightService = new FlightService(FactoryDAO.buildFlightDAO());
 	}
 
 	@Override

@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import ie.espatial.db.dao.FactoryDAO;
 import ie.espatial.db.dao.FlightDAO;
 import ie.espatial.model.Flight;
 import ie.espatial.model.FlightResult;
@@ -20,8 +19,8 @@ public class FlightService {
 
 	private final FlightDAO flightDAO;
 
-	public FlightService() {
-		flightDAO = FactoryDAO.buildFlightDAO();
+	public FlightService(FlightDAO flightDAO) {
+		this.flightDAO = flightDAO;
 	}
 
 	public List<String> retrieveAvailableDates() {

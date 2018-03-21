@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ie.espatial.db.dao.FactoryDAO;
 import ie.espatial.service.BookService;
 
 public class BookActivity implements Activity {
@@ -20,7 +21,7 @@ public class BookActivity implements Activity {
 	private final BookService bookService;
 
 	public BookActivity() {
-		bookService = new BookService();
+		bookService = new BookService(FactoryDAO.buildTripDAO(), FactoryDAO.buildBookFlightDAO(), FactoryDAO.buildFlightDAO());
 	}
 
 	@Override
