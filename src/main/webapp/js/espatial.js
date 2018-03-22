@@ -65,7 +65,6 @@ $(document).ready(function() {
 	
 	//retrive available date and initialize datepicker with the specific range
 	$.getJSON("controller/retrieve/availableDates", function(availableDates) {
-		
 		var activeDates = function(date) {
 			var day = date.getDate();
 			day = day < 10 ? "0" + day : day;
@@ -91,8 +90,9 @@ $(document).ready(function() {
 	});
 	
 	
-	//search flights
+	//field validations and search flights
 	$("#buttonSearch").click(function() {
+		//field validations
 		var flightType = $('input[name=flightType]:checked').val();
 		var airportFrom = $('#airportFrom').val();
 		var airportTo = $('#airportTo').val();		
@@ -126,7 +126,7 @@ $(document).ready(function() {
 			}
 		}			
 		
-		
+		//search flights
 		$("#response").html("");
         $.getJSON("controller/search/flights", $("#searchForm").serialize(), function(result) {
             $.each(result, function(key, flight) {     
@@ -141,6 +141,7 @@ $(document).ready(function() {
             			   $("#" + flightTime["bookId"]).addClass("btn-disabled");
                 	   }
             		   
+            		   //book flight
             		   $("#" + flightTime["bookId"]).click(function() {
             			   var idFlight = this.id;
             			   idFlight = idFlight.substring(5);
@@ -164,8 +165,6 @@ $(document).ready(function() {
      			
      	});
     });
-	
-	//book flight
 	
 	
 });
